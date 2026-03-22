@@ -1,0 +1,25 @@
+{
+  "name": "api-gateway-core",
+  "version": "1.0.0",
+  "description": "Enterprise REST API design, OpenAPI, and route patterns",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest",
+    "lint": "eslint src --ext .ts"
+  },
+  "keywords": ["api", "rest", "openapi", "swagger", "validation"],
+  "author": "API Team",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.0",
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.0",
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
