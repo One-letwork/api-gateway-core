@@ -16,7 +16,7 @@ export class ErrorHandlerMiddleware {
    * Global error handler middleware
    */
   static errorHandler() {
-    return (err: Error | ApiGatewayError, req: ErrorRequest, res: Response, next: NextFunction) => {
+    return (err: Error | ApiGatewayError, req: ErrorRequest, res: Response) => {
       const traceId = req.traceId || generateTraceId();
       const timestamp = new Date().toISOString();
       const path = req.path;

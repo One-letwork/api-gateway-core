@@ -3,7 +3,7 @@
  * Provides flexible filtering support for list endpoints
  */
 
-import { FilterCondition, FilterOperator, FilterParams } from "../types";
+import { FilterCondition, FilterOperator } from "../types";
 
 export class FilterHelper {
   /**

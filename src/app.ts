@@ -4,6 +4,8 @@
  */
 
 import express, { Express, Request, Response, NextFunction } from "express";
+import cors from "cors";
+import compression from "compression";
 import { ErrorHandlerMiddleware } from "./middleware/error-handler.middleware";
 
 export interface AppConfig {
@@ -13,7 +15,6 @@ export interface AppConfig {
   enableCompression?: boolean;
   enableRequestLogging?: boolean;
   trustedProxies?: string[];
-  bodyLimit?: string;
   jsonLimit?: string;
   urlLimit?: string;
 }
@@ -31,7 +32,6 @@ export class AppFactory {
       enableCompression = true,
       enableRequestLogging = true,
       trustedProxies = ["loopback"],
-      bodyLimit = "1mb",
       jsonLimit = "1mb",
       urlLimit = "1mb",
     } = config;
@@ -47,7 +47,6 @@ export class AppFactory {
 
     // CORS
     if (enableCors) {
-      const cors = require("cors");
       app.use(
         cors({
           origin: process.env.CORS_ORIGIN || "*",
@@ -62,7 +61,6 @@ export class AppFactory {
 
     // Compression
     if (enableCompression) {
-      const compression = require("compression");
       app.use(compression());
     }
 
